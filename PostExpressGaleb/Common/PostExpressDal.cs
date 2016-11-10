@@ -199,7 +199,7 @@ namespace PostExpressGaleb.Common
                 }
             }
             catch (Exception)
-            {Du
+            {
                 return null;
             }
             finally
