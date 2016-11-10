@@ -1,0 +1,109 @@
+﻿<Controls:MetroWindow x:Class="PostExpressGaleb.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PostExpressGaleb"
+        mc:Ignorable="d"
+        Title="Post Express - Galeb" Height="747" Width="1172" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="{StaticResource ContentFontFamily}"/>
+            <Setter Property="FontSize" Value="{StaticResource ContentFontSize}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <GroupBox x:Name="groupBox" Header="Lista primalaca" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="696" Width="237">
+            <StackPanel>
+                <TextBox Name="txtPretraga" Controls:TextBoxHelper.Watermark="Pretraga"  Margin="0 0 0 5" TextChanged="txtPretraga_TextChanged" />
+                <ListBox x:Name="listBox" Height="622" SelectionChanged="listBox_SelectionChanged"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Pošiljke" HorizontalAlignment="Left" Margin="274,10,0,0" VerticalAlignment="Top" Height="696" Width="880">
+            <Grid>
+                <Grid Width="365" Height="302" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtNaziv"  HorizontalAlignment="Left" Height="23" Margin="0 0 0 8" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="286"/>
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="0" Grid.Row="2" TextWrapping="Wrap" Text="Adresa" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtAdresa" Margin="0 0 0 8" HorizontalAlignment="Left" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="286"/>
+                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="0" Grid.Row="4" TextWrapping="Wrap" Text="Mesto" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtMesto" Margin="0 0 0 8" HorizontalAlignment="Left" Height="23" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="286"/>
+                    <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="0" Grid.Row="6" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtTelefon" HorizontalAlignment="Left" Height="23" Margin="0 0 0 8" Grid.Row="7" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"/>
+                    <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="190 0 0 0" Grid.Row="6" TextWrapping="Wrap" Text="Poštanski broj" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtPostBroj" MaxLength="5"  Height="23" Margin="110 0 0 0" Grid.Row="7" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="97"/>
+                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="0" Grid.Row="8" TextWrapping="Wrap" Text="Kontakt osoba" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtKontaktOsoba" HorizontalAlignment="Left" Height="23" Margin="0 0 0 18" Grid.Row="9" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="286"/>
+                    <Button x:Name="btnNovUnos" Content="Nov unos" HorizontalAlignment="Center" Margin="79,0,185,0" Grid.Row="10" VerticalAlignment="Top" Width="101" Click="btnNovUnos_Click"/>
+                    <Button x:Name="btnSacuvaj" Background="Beige" Content="Sačuvaj" HorizontalAlignment="Left" Margin="185,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="101" Click="btnSacuvaj_Click"/>
+                </Grid>
+                <ListView x:Name="listView1" HorizontalAlignment="Left" Height="208" Margin="20,401,0,0" VerticalAlignment="Top" Width="838">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Naziv}" Width="Auto"/>
+                            <GridViewColumn Header="Adresa" DisplayMemberBinding="{Binding Adresa}" Width="Auto"/>
+                            <GridViewColumn Header="Mesto" DisplayMemberBinding="{Binding Mesto}" Width="Auto"/>
+                            <GridViewColumn Header="Post. broj" DisplayMemberBinding="{Binding PostanskiBroj}" Width="Auto"/>
+                            <GridViewColumn Header="Kontakt osoba" DisplayMemberBinding="{Binding KontaktOsoba}" Width="Auto"/>
+                            <GridViewColumn Header="Telefon" DisplayMemberBinding="{Binding Telefon}" Width="Auto"/>
+                            <GridViewColumn Header="Vrednost" DisplayMemberBinding="{Binding Vrednost}"  Width="Auto"/>
+                            <GridViewColumn Header="Otkupnina" DisplayMemberBinding="{Binding Otkupnina}" Width="Auto"/>
+                            <GridViewColumn Header="Masa" DisplayMemberBinding="{Binding Masa}" Width="Auto"/>
+                            <GridViewColumn Header="Sadrzaj" DisplayMemberBinding="{Binding Sadrzaj}" Width="Auto"/>
+                            <GridViewColumn Header="PAK" DisplayMemberBinding="{Binding PAK}" Width="Auto"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Grid HorizontalAlignment="Left" Height="347" Margin="409,20,0,0" VerticalAlignment="Top" Width="377">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="0" Grid.Row="1" TextWrapping="Wrap" Text="Vrednost" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtVrednost" HorizontalAlignment="Left" Margin="0 0 0 8" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
+                    <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="Otkupnina" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtOtkupnina" HorizontalAlignment="Left" Margin="0 0 0 8" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
+                    <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Margin="0" Grid.Row="5" TextWrapping="Wrap" Text="Masa (kg)" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtMasa" HorizontalAlignment="Left" Height="23" Margin="0 0 0 8" Grid.Row="6" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
+                    <TextBlock x:Name="textBlock10" HorizontalAlignment="Left" Margin="0" Grid.Row="7" TextWrapping="Wrap" Text="Sadržaj" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtSadrzaj" HorizontalAlignment="Left" Margin="0 0 0 8" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="266"/>
+                    <TextBlock x:Name="textBlock11" HorizontalAlignment="Left" Margin="0" Grid.Row="9" TextWrapping="Wrap" Text="PAK" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtPak" HorizontalAlignment="Left" Height="23" Margin="0 0 0 10" Grid.Row="10" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="btnSacuvajPosiljku" Content="Sačuvaj pošiljku" Background="Beige" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="201" Height="41" Click="btnSacuvajPosiljku_Click"/>
+                </Grid>
+
+                <Button x:Name="btnIzvozPdf" Background="SkyBlue" Content="Izvoz u DPF" HorizontalAlignment="Left" Margin="739,622,0,0" VerticalAlignment="Top" Width="119" Click="btnIzvozPdf_Click"/>
+                <DatePicker Name="dtPicker" Height="25" Margin="20,370,682,261" SelectedDateChanged="dtPicker_SelectedDateChanged"/>
+                <Button x:Name="btnIzbrisi" Click="btnIzbrisi_Click" Background="Pink" Content="Izbriši" HorizontalAlignment="Left" Margin="643,622,0,0" VerticalAlignment="Top" Width="91"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Controls:MetroWindow>
